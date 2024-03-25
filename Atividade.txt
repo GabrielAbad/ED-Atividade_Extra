@@ -8,46 +8,50 @@ void Power(int&, const int);
 void Fact(int&);
 float AritProg(float&, float&, float);
 int CalcFib(int);
+float ContaDigitos(int&);
 
 int main() {
-    int valorA = 3;
-    Power(valorA, 4);
-    cout << valorA << endl;
+    int iValorA = 3;
+    Power(iValorA, 4);
+    cout << iValorA << endl;
 
-    int valorB = 5;
-    Fact(valorB);
-    cout << valorB << endl;
+    int iValorB = 5;
+    Fact(iValorB);
+    cout << iValorB << endl;
 
-    float primeiroTermo = 1, ultimoTermo = 4;
-    float soma = AritProg(primeiroTermo, ultimoTermo, 4);
-    cout << soma << endl;
+    float fPrimeiroTermo = 1, fUltimoTermo = 4;
+    float fSoma = AritProg(fPrimeiroTermo, fUltimoTermo, 4);
+    cout << fSoma << endl;
 
-    int termoNumero = 5;
-    int somaFibonacci = CalcFib(termoNumero);
-    cout << somaFibonacci;
+    int iTermoNumero = 5;
+    int iSomaFibonacci = CalcFib(iTermoNumero);
+    cout << iSomaFibonacci << endl;
+    
+    int iDigito = 10340;
+    cout << ContaDigitos(iDigito) << endl;
 
     return 0;
 }
 
-void Power(int &valor, const int expoente) {
-    int temp = 1;
-    for (int i = 0; i < expoente; i++) {
-        temp = (valor)*temp;
+void Power(int &iValor, const int iExpoente) {
+    int iTmp = 1;
+    for (int i = 0; i < iExpoente; i++) {
+        iTmp = (iValor) * iTmp;
     }
-    valor = temp;
+    iValor = iTmp;
 }
 
-void Fact(int &valor) {
-    int temp = valor;
-    int resultado = 1;
-    for (int i = 1; i <= valor; i++) {
-        resultado *= i;
+void Fact(int &iValor) {
+    int iTmp = iValor;
+    int iResultado = 1;
+    for (int i = 1; i <= iValor; i++) {
+        iResultado *= i;
     }
-    valor = resultado;
+    iValor = iResultado;
 }
 
-float AritProg(float &primeiro, float &ultimo, float tamanho) {
-    return tamanho * (primeiro + ultimo) / 2;
+float AritProg(float &fPrimeiro, float &fUltimo, float fTamanho) {
+    return fTamanho * (fPrimeiro + fUltimo) / 2;
 }
 
 int CalcFib(int n) {
@@ -56,4 +60,14 @@ int CalcFib(int n) {
     } else {
         return CalcFib(n - 1) + CalcFib(n - 2);
     }
+}
+
+float ContaDigitos(int &iDigito) {
+    int iTmp = iDigito;
+    int iContagemDigitos = 0;
+    while (iTmp > 0) {
+        iContagemDigitos++;
+        iTmp = iTmp / 10;
+    }
+    return iContagemDigitos;
 }
