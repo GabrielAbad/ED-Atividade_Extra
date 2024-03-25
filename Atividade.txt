@@ -11,6 +11,9 @@ int main(){
     int a = 3;
     power(a,4);
     cout << a << endl;
+    int b = 5;
+    fact(b);
+    cout << b << endl;
     return 0;
 }
 
@@ -23,3 +26,13 @@ void power(int &iValor, const int iExp){
 
     iValor = iTmp;
 }
+
+void fact(int &iValor){
+    int iTmp = iValor;
+    int iNum = 1;
+
+   for(int i = 1; i <= iValor ; i++){
+    iNum *= i;
+   }
+   iValor = iNum;
+ }
