@@ -6,6 +6,7 @@ using std::endl;
 using std::string;
 
 void power(int&,const int);
+void fact(int&)
 
 int main(){
     int a = 3;
