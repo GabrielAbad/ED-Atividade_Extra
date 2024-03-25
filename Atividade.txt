@@ -5,7 +5,21 @@ using std::cout;
 using std::endl;
 using std::string;
 
-int main()
-{
-  return 0;
+void power(int&,const int);
+
+int main(){
+    int a = 3;
+    power(a,4);
+    cout << a << endl;
+    return 0;
+}
+
+
+void power(int &iValor, const int iExp){
+    int iTmp=1;
+    for(int i = 0 ; i < iExp; i++){
+        iTmp = (iValor)*iTmp;
+    }
+
+    iValor = iTmp;
 }
