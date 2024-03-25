@@ -1,39 +1,59 @@
 #include <iostream>
-
 using std::cin;
 using std::cout;
 using std::endl;
 using std::string;
 
-void power(int&,const int);
-void fact(int&)
+void Power(int&, const int);
+void Fact(int&);
+float AritProg(float&, float&, float);
+int CalcFib(int);
 
-int main(){
-    int a = 3;
-    power(a,4);
-    cout << a << endl;
-    int b = 5;
-    fact(b);
-    cout << b << endl;
+int main() {
+    int valorA = 3;
+    Power(valorA, 4);
+    cout << valorA << endl;
+
+    int valorB = 5;
+    Fact(valorB);
+    cout << valorB << endl;
+
+    float primeiroTermo = 1, ultimoTermo = 4;
+    float soma = AritProg(primeiroTermo, ultimoTermo, 4);
+    cout << soma << endl;
+
+    int termoNumero = 5;
+    int somaFibonacci = CalcFib(termoNumero);
+    cout << somaFibonacci;
+
     return 0;
 }
 
-
-void power(int &iValor, const int iExp){
-    int iTmp=1;
-    for(int i = 0 ; i < iExp; i++){
-        iTmp = (iValor)*iTmp;
+void Power(int &valor, const int expoente) {
+    int temp = 1;
+    for (int i = 0; i < expoente; i++) {
+        temp = (valor)*temp;
     }
-
-    iValor = iTmp;
+    valor = temp;
 }
 
-void fact(int &iValor){
-    int iTmp = iValor;
-    int iNum = 1;
+void Fact(int &valor) {
+    int temp = valor;
+    int resultado = 1;
+    for (int i = 1; i <= valor; i++) {
+        resultado *= i;
+    }
+    valor = resultado;
+}
 
-   for(int i = 1; i <= iValor ; i++){
-    iNum *= i;
-   }
-   iValor = iNum;
- }
+float AritProg(float &primeiro, float &ultimo, float tamanho) {
+    return tamanho * (primeiro + ultimo) / 2;
+}
+
+int CalcFib(int n) {
+    if (n <= 1) {
+        return 1;
+    } else {
+        return CalcFib(n - 1) + CalcFib(n - 2);
+    }
+}
