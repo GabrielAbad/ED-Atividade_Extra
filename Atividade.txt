@@ -4,20 +4,20 @@ using std::cout;
 using std::endl;
 using std::string;
 
-void Power(int&, const int);
-void Fact(int&);
+int Power(int&, const int);
+int Fact(int&);
 float AritProg(float&, float&, float);
 int CalcFib(int);
 float ContaDigitos(int&);
 
 int main() {
     int iValorA = 3;
-    Power(iValorA, 4);
-    cout << iValorA << endl;
+    int iPow = Power(iValorA, 4);
+    cout << iPow << endl;
 
     int iValorB = 5;
-    Fact(iValorB);
-    cout << iValorB << endl;
+    int iFact = Fact(iValorB);
+    cout << iFact << endl;
 
     float fPrimeiroTermo = 1, fUltimoTermo = 4;
     float fSoma = AritProg(fPrimeiroTermo, fUltimoTermo, 4);
@@ -33,21 +33,20 @@ int main() {
     return 0;
 }
 
-void Power(int &iValor, const int iExpoente) {
+int Power(int &iValor, const int iExpoente) {
     int iTmp = 1;
     for (int i = 0; i < iExpoente; i++) {
         iTmp = (iValor) * iTmp;
     }
-    iValor = iTmp;
+    return iTmp;
 }
 
-void Fact(int &iValor) {
-    int iTmp = iValor;
+int Fact(int &iValor) {
     int iResultado = 1;
     for (int i = 1; i <= iValor; i++) {
         iResultado *= i;
     }
-    iValor = iResultado;
+    return iResultado;
 }
 
 float AritProg(float &fPrimeiro, float &fUltimo, float fTamanho) {
@@ -63,11 +62,19 @@ int CalcFib(int n) {
 }
 
 float ContaDigitos(int &iDigito) {
-    int iTmp = iDigito;
     int iContagemDigitos = 0;
-    while (iTmp > 0) {
+    while (iDigito > 0) {
         iContagemDigitos++;
-        iTmp = iTmp / 10;
+        iDigito = iDigito / 10;
     }
     return iContagemDigitos;
 }
+float ContaDigitos(int &iDigito) {
+    int iContagemDigitos = 0;
+    while (iDigito > 0) {
+        iContagemDigitos++;
+        iDigito = iDigito / 10;
+    }
+    return iContagemDigitos;
+}
+
